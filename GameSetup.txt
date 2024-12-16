@@ -6,3 +6,36 @@ Create menus:
 4. Contracts
 5. Exit
 
+Create the shopping menu:
+What items are available to buy?
+Wifi attacks
+Network attacks
+Viruses
+IDS detection
+Prices? Upgrades? 
+Can the player sell the items back?
+
+
+Inventory:
+list, able to add and remove items
+Keep track of how many items are in the Inventory
+Keep track on money for the player
+
+How will the player make money?
+
+
+
+Contracts:
+Types of Contracts:
+For Hire
+Dark Web
+Reward for contracts
+
+How does the player keep track of the contacts?
+How do you make sure the player has the correct items needed for the contact?
+Is there a penality for not completing the contract within a period time?
+Can the player do jobs for the shop in order to get a better discount on future items?
+Does the prices go up or
+
+Exit:
+Good Bye!
