@@ -1,0 +1,8 @@
+Hacking Game: 
+Create menus:
+1. Shop
+2. Inventory
+3. Hacking Options
+4. Contracts
+5. Exit
+
