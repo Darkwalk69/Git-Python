@@ -14,7 +14,10 @@ def MainMenu():
         print("2. Hacking Store")
         print("3. View Inventory")
         print("4. Exit")
-        choice = int(input("Enter your selection:\n"))
+        try:
+            choice = int(input("Enter your selection:\n"))
+        except ValueError:
+            print("Invalid Input! Please enter a number.")
         if choice == 1:
             print("Now displaying all available hacking options")
             HackingMenu()
@@ -39,7 +42,10 @@ def HackingMenu():  #Consider letting the user attempt the hack attempt more tha
     print("2. Data Extraction")
     print("3. DDoS Attack")
     print("4. Main Menu")
-    choice = int(input("Please make a selection:\n"))
+    try:
+        choice = int(input("Please make a selection:\n"))
+    except ValueError:
+        print("Invalid Input!. Please enter a number.")
     if choice == 1:
         print("Preparing Password Cracking Software")
         PasswordCracker()
@@ -62,7 +68,10 @@ def HackingStore():
     print("2. Data Sniffer. $200")
     print("3. Servers to assist with DDoS Attack. $300")
     print("4. Main Menu")
-    choice = int(input("Please make a selection:\n"))
+    try:
+        choice = int(input("Please make a selection:\n"))
+    except ValueError:
+        print("Invalid input! Please enter a number.")
     if choice == 1:
         print("Adding Password Cracker to inventory")
         return "Password Cracker", 100
