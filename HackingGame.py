@@ -3,7 +3,7 @@ from operator import inv
 import os
 import random
 
-inventory = ["Wet noodle", 1, "Coffee"]
+inventory = []
 
 def MainMenu():
     os.system("cls")
@@ -33,10 +33,9 @@ def MainMenu():
         else:
             print("Invalid selection. Please choose a correct option")
             MainMenu()
-
     
-def HackingMenu():  #Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!! 
-    #os.system("cls")
+def HackingMenu(): #Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!! 
+    os.system("cls")
     print("--- Here are your available hacks ---")
     print("1. Password Cracker")
     print("2. Data Extraction")
@@ -59,7 +58,7 @@ def HackingMenu():  #Consider letting the user attempt the hack attempt more tha
         MainMenu()
     else:
         print("Invalid selection. Please choose a correct option")
-        return HackingMenu()
+        HackingMenu()
     
 def HackingStore():
     os.system("cls")
@@ -74,18 +73,24 @@ def HackingStore():
         print("Invalid input! Please enter a number.")
     if choice == 1:
         print("Adding Password Cracker to inventory")
-        return "Password Cracker", 100
+        inventory.append("Password Cracker")
     elif choice == 2:
         print("Adding Data Sniffer to Inventory")
-        return "Data Sniffer", 200
+        inventory.append("Data Sniffer")
     elif choice == 3:
         print("Adding Servers to Inventory")
-        return "Servers", 300
+        inventory.append("Servers")
     elif choice == 4:
         MainMenu()
     else:
         print("Invalid selection. Please choose a correct option")
-        return HackingStore()
+        HackingStore()
+        
+    continue_shopping = input("would you like to keep shopping (yes/no):\n")
+    if continue_shopping.lower() == "yes":
+        HackingStore()
+    else:
+        MainMenu()
     
 def PlayerInventory():
     num = 0
@@ -93,8 +98,8 @@ def PlayerInventory():
     print("--- Here is your Inventory ---")
     if inventory:
         for item in inventory:
-            num = num + 1  #Added numeric listing of items for user // Could change to QTY in the future!!! 
-            print(f"{num}.{item}")
+            num = num + 1 #Added numeric listing of items for user // Could change to QTY in the future!!! 
+            print(f"- {item}")
     else:
         print("Your inventory is empty")
         input() #Pauses program to let user see their inventory
