@@ -4,6 +4,7 @@ import os
 import random
 
 inventory = []
+balance = 1000 #starting balance for player until we get added currency games from hacking successes.
 
 def MainMenu():
     os.system("cls")
@@ -64,6 +65,7 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
 def HackingStore():
     os.system("cls")
     print("--- Welcome to the Hacking Emporium ---")
+    print(f"Your current balance is: ${balance}") #Showing player what their balance is everytime they open the store up to help them keep track of their money.
     print("1. Password Cracker Boost. $100")
     print("2. Data Sniffer. $200")
     print("3. Servers to assist with DDoS Attack. $300")
@@ -75,12 +77,15 @@ def HackingStore():
     if choice == 1:
         print("Adding Password Cracker to inventory")
         inventory.append("Password Cracker")
+        balance -= 100
     elif choice == 2:
         print("Adding Data Sniffer to Inventory")
         inventory.append("Data Sniffer")
+        balance -= 200
     elif choice == 3:
         print("Adding Servers to Inventory")
         inventory.append("Servers")
+        balance -= 300
     elif choice == 4:
         MainMenu()
     else:
@@ -110,11 +115,13 @@ def PasswordCracker():
     os.system("cls")
     print("---  Attempting Password Crack ---")
     success = 50
-    if "Password Cracker" in inventory:
+    if "Password Cracker" in inventory: #Need to figure out how to use the item and remove it from inventory
         success += 20
+        #inventory.remove("Password Cracker") This may work but need to know if it add the bonus first before removing it from inventory.
     roll = random.randint(1, 100)
     if roll > success:
-        print("Password has been cracked")
+        print("Password has been cracked. You have been awarded $100")
+        balance += 100 #Bare bones adding of currency for winning.
     else:
         print("Password Crack failed")
     HackingMenu()
@@ -123,18 +130,19 @@ def DataExtraction():
     os.system("cls")
     print("--- Attempting Data Extraction ---")
     success = 40
-    if "Data Sniffer" in inventory:
+    if "Data Sniffer" in inventory: #Need to figure out how to use the item and remove it from inventory
         success += 20
     roll = random.randint(1, 100)
     if roll > success:
-        print("Data Extraction Successful")
+        print("Data Extraction Successful. You have been awarded $200")
+        balance += 200 #Bare bones adding of currency for winning.
     else:
         print("Data Extraction Failed")
     HackingMenu()
     
 def DDoSAttack():
     os.system("cls")
-    #print("--- Attempting DDoS Atttack ---")
+    print("--- Attempting DDoS Atttack ---")
     ip = input("Enter the target IP:")
     if ip == "127.0.0.1":
         print("Why are you hacking your home?!")
@@ -143,11 +151,12 @@ def DDoSAttack():
     else:
         print(f"--- Attempting DDoS Atttack --- on {ip}")
     success = 20
-    if "Servers" in inventory:
+    if "Servers" in inventory: #Need to figure out how to use the item and remove it from inventory
         success += 20
     roll = random.randint(1, 100)
     if roll > success:
-        print("DDoS Attack Successful")
+        print("DDoS Attack Successful. You have been awarded $300")
+        balance += 300 #Bare bones adding of currency for winning.
     else:
         print("DDoS Attack Failed")
     try_again = input("Want to try again?: ")  #Added IF statement to ask user if they want to try again or exit out..  //  Maybe keep track of how many times they hacked and force them to the hacking menu??
