@@ -1,9 +1,12 @@
+#make comments!!!
 from operator import inv
+import os
 import random
 
-inventory = []
+inventory = ["Wet noodle", 1, "Coffee"]
 
 def MainMenu():
+    os.system("cls")
     choice = ""
     while choice != 4:  
         print("--- Welcome Fellow Hacker! ---")
@@ -30,8 +33,10 @@ def MainMenu():
         else:
             print("Invalid selection. Please choose a correct option")
             MainMenu()
+
     
-def HackingMenu():
+def HackingMenu():  #Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!! 
+    #os.system("cls")
     print("--- Here are your available hacks ---")
     print("1. Password Cracker")
     print("2. Data Extraction")
@@ -57,6 +62,7 @@ def HackingMenu():
         return HackingMenu()
     
 def HackingStore():
+    os.system("cls")
     print("--- Welcome to the Hacking Emporium ---")
     print("1. Password Cracker Boost. $100")
     print("2. Data Sniffer. $200")
@@ -68,34 +74,34 @@ def HackingStore():
         print("Invalid input! Please enter a number.")
     if choice == 1:
         print("Adding Password Cracker to inventory")
-        inventory.append("Password Cracker")
+        return "Password Cracker", 100
     elif choice == 2:
         print("Adding Data Sniffer to Inventory")
-        inventory.append("Data Sniffer")
+        return "Data Sniffer", 200
     elif choice == 3:
         print("Adding Servers to Inventory")
-        inventory.append("Servers")
+        return "Servers", 300
     elif choice == 4:
         MainMenu()
     else:
         print("Invalid selection. Please choose a correct option")
-        HackingStore()
-        
-    continue_shopping = input("would you like to keep shopping (yes/no):\n")
-    if continue_shopping.lower() == "yes":
-        HackingStore()
-    else:
-        MainMenu()
+        return HackingStore()
     
 def PlayerInventory():
+    num = 0
+    os.system("cls")
     print("--- Here is your Inventory ---")
     if inventory:
         for item in inventory:
-            print(f"- {item}")
+            num = num + 1  #Added numeric listing of items for user // Could change to QTY in the future!!! 
+            print(f"{num}.{item}")
     else:
         print("Your inventory is empty")
+        input() #Pauses program to let user see their inventory
+        os.system("cls")  #Clears Screen before going back to the main menu
         
 def PasswordCracker():
+    os.system("cls")
     print("---  Attempting Password Crack ---")
     success = 50
     if "Password Cracker" in inventory:
@@ -108,6 +114,7 @@ def PasswordCracker():
     HackingMenu()
     
 def DataExtraction():
+    os.system("cls")
     print("--- Attempting Data Extraction ---")
     success = 40
     if "Data Sniffer" in inventory:
@@ -120,7 +127,15 @@ def DataExtraction():
     HackingMenu()
     
 def DDoSAttack():
-    print("--- Attempting DDoS Atttack ---")
+    os.system("cls")
+    #print("--- Attempting DDoS Atttack ---")
+    ip = input("Enter the target IP:")
+    if ip == "127.0.0.1":
+        print("Why are you hacking your home?!")
+        input()
+        HackingMenu()
+    else:
+        print(f"--- Attempting DDoS Atttack --- on {ip}")
     success = 20
     if "Servers" in inventory:
         success += 20
@@ -129,7 +144,11 @@ def DDoSAttack():
         print("DDoS Attack Successful")
     else:
         print("DDoS Attack Failed")
-    HackingMenu()   
+    try_again = input("Want to try again?: ")  #Added IF statement to ask user if they want to try again or exit out..  //  Maybe keep track of how many times they hacked and force them to the hacking menu??
+    if try_again == "y":
+        DDoSAttack()
+    else:
+        HackingMenu()
     
 if __name__ == "__main__":
     MainMenu()
