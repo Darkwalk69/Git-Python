@@ -3,7 +3,7 @@ from operator import inv
 import os
 import random
 
-inventory = ["Wet noodle", 1, "Coffee"]
+inventory = []
 
 def MainMenu():
     os.system("cls")
