@@ -74,18 +74,24 @@ def HackingStore():
         print("Invalid input! Please enter a number.")
     if choice == 1:
         print("Adding Password Cracker to inventory")
-        return "Password Cracker", 100
+        inventory.append("Password Cracker")
     elif choice == 2:
         print("Adding Data Sniffer to Inventory")
-        return "Data Sniffer", 200
+        inventory.append("Data Sniffer")
     elif choice == 3:
         print("Adding Servers to Inventory")
-        return "Servers", 300
+        inventory.append("Servers")
     elif choice == 4:
         MainMenu()
     else:
         print("Invalid selection. Please choose a correct option")
         return HackingStore()
+    
+    next_action = input("Would you like to continue shopping? (yes/no): ")
+    if next_action.lower() == "yes":
+        HackingStore()
+    else:
+        MainMenu()
     
 def PlayerInventory():
     num = 0
