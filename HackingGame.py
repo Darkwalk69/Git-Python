@@ -124,7 +124,7 @@ def DetectionChance(): #created a detection chance function that removes money i
     
         
 def PasswordCracker():
-    global balance
+    global balance #had to add global to let the function know to pull from balance at the top
     os.system("cls")
     DetectionChance()
     print("---  Attempting Password Crack ---")
@@ -139,7 +139,7 @@ def PasswordCracker():
         balance += random.randint(100,200) #Changed it to randomly add value to balance
         print(f"Your new balance is: {balance}")
     else:
-        global detection_chance
+        global detection_chance #Same here with detection chance
         detection_chance += 10 #add a 10% chance to being detected.
         print("Password Crack failed. Your chance of being caught has increased.")
         
@@ -150,7 +150,7 @@ def PasswordCracker():
         HackingMenu()
     
 def DataExtraction():
-    global balance
+    global balance #had to add global to let the function know to pull from balance at the top
     os.system("cls")
     DetectionChance()
     print("--- Attempting Data Extraction ---")
@@ -165,7 +165,7 @@ def DataExtraction():
         balance += random.randint(200, 300) #Changed it to randomly add value to balance
         print(f"Your new balance is: {balance}")
     else:
-        global detection_chance
+        global detection_chance #Same here with detection chance
         detection_chance += 10 #add a 10% chance to being detected.
         print("Data Extraction Failed. Your chance of being caught has increased")
         
@@ -176,7 +176,7 @@ def DataExtraction():
         HackingMenu()
     
 def DDoSAttack():
-    global balance
+    global balance #had to add global to let the function know to pull from balance at the top
     os.system("cls")
     DetectionChance()
     print("--- Attempting DDoS Atttack ---")
@@ -198,7 +198,7 @@ def DDoSAttack():
         balance += random.randint(300, 400) #Changed it to randomly add value to balance
         print(f"Your new balance is: {balance}")
     else:
-        global detection_chance
+        global detection_chance #Same here with detection chance
         detection_chance += 10 #add a 10% chance to being detected.
         print("DDoS Attack Failed. Your chance of being caught has increased.")
         
