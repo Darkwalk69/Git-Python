@@ -124,8 +124,9 @@ def DetectionChance(): #created a detection chance function that removes money i
     
         
 def PasswordCracker():
+    global balance
     os.system("cls")
-    detection_chance
+    DetectionChance()
     print("---  Attempting Password Crack ---")
     success = 50
     if "Password Cracker" in inventory:
@@ -138,6 +139,7 @@ def PasswordCracker():
         balance += random.randint(100,200) #Changed it to randomly add value to balance
         print(f"Your new balance is: {balance}")
     else:
+        global detection_chance
         detection_chance += 10 #add a 10% chance to being detected.
         print("Password Crack failed. Your chance of being caught has increased.")
         
@@ -148,8 +150,9 @@ def PasswordCracker():
         HackingMenu()
     
 def DataExtraction():
+    global balance
     os.system("cls")
-    detection_chance
+    DetectionChance()
     print("--- Attempting Data Extraction ---")
     success = 40
     if "Data Sniffer" in inventory: #Need to figure out how to use the item and remove it from inventory
@@ -162,6 +165,7 @@ def DataExtraction():
         balance += random.randint(200, 300) #Changed it to randomly add value to balance
         print(f"Your new balance is: {balance}")
     else:
+        global detection_chance
         detection_chance += 10 #add a 10% chance to being detected.
         print("Data Extraction Failed. Your chance of being caught has increased")
         
@@ -172,8 +176,9 @@ def DataExtraction():
         HackingMenu()
     
 def DDoSAttack():
+    global balance
     os.system("cls")
-    detection_chance
+    DetectionChance()
     print("--- Attempting DDoS Atttack ---")
     ip = input("Enter the target IP:")
     if ip == "127.0.0.1":
@@ -193,6 +198,7 @@ def DDoSAttack():
         balance += random.randint(300, 400) #Changed it to randomly add value to balance
         print(f"Your new balance is: {balance}")
     else:
+        global detection_chance
         detection_chance += 10 #add a 10% chance to being detected.
         print("DDoS Attack Failed. Your chance of being caught has increased.")
         
