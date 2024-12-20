@@ -64,7 +64,6 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         HackingMenu()
     
 def HackingStore():
-    global balance
     os.system("cls")
     print("--- Welcome to the Hacking Emporium ---")
     print(f"Your current balance is: ${balance}") #Showing player what their balance is everytime they open the store up to help them keep track of their money.
@@ -101,6 +100,8 @@ def HackingStore():
         MainMenu()
     
 def PlayerInventory():
+    global balance
+    print(f"Your current balance is {balance}") # Invetory will now show the current balance
     num = 0
     os.system("cls")
     print("--- Here is your Inventory ---")
@@ -114,6 +115,7 @@ def PlayerInventory():
         os.system("cls")  #Clears Screen before going back to the main menu
         
 def DetectionChance(): #created a detection chance function that removes money if you are caught
+    global balance  # Add global VAR so the balance could be read from this function
     roll = random.randint(1, 100)
     if roll <= detection_chance:
         print("You have been detected and booted from the system.")
@@ -136,8 +138,17 @@ def PasswordCracker():
         print(f"Here is your remaining inventory: {inventory}")
     roll = random.randint(1, 100)
     if roll > success:
-        print("Password has been cracked. You have been awarded $100")
-        balance += 100 #Bare bones adding of currency for winning.
+        print("Password has been cracked. Here is your reward.")
+        balance += random.randint(100,200) #Changed it to randomly add value to balance
+        print(f"Your new balance is: {balance}")
+    else:
+        global detection_chance #Same here with detection chance
+        detection_chance += 10 #add a 10% chance to being detected.
+        print("Password Crack failed. Your chance of being caught has increased.")
+        
+    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
+    if try_again.lower() == "yes":
+        PasswordCracker()
     else:
         HackingMenu()
     
@@ -153,8 +164,17 @@ def DataExtraction():
         print(f"Here is your remaining inventory: {inventory}")
     roll = random.randint(1, 100)
     if roll > success:
-        print("Data Extraction Successful. You have been awarded $200")
-        balance += 200 #Bare bones adding of currency for winning.
+        print("Data Extraction Successful. Here is your reward.")
+        balance += random.randint(200, 300) #Changed it to randomly add value to balance
+        print(f"Your new balance is: {balance}")
+    else:
+        global detection_chance #Same here with detection chance
+        detection_chance += 10 #add a 10% chance to being detected.
+        print("Data Extraction Failed. Your chance of being caught has increased")
+        
+    try_again = input("Want to try again?:")
+    if try_again.lower() == "yes":
+        DataExtraction()
     else:
         HackingMenu()
     
@@ -177,8 +197,9 @@ def DDoSAttack():
         print(f"Here is your remaining inventory: {inventory}")
     roll = random.randint(1, 100)
     if roll > success:
-        print("DDoS Attack Successful. You have been awarded $300")
-        balance += 300 #Bare bones adding of currency for winning.
+        print("DDoS Attack Successful. Here is your reward.")
+        balance += random.randint(300, 400) #Changed it to randomly add value to balance
+        print(f"Your new balance is: {balance}")
     else:
         global detection_chance #Same here with detection chance
         detection_chance += 10 #add a 10% chance to being detected.
