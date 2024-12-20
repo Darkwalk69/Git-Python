@@ -4,7 +4,8 @@ import os
 import random
 
 inventory = []
-balance = 1000 #starting balance for player until we get added currency games from hacking successes.
+balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
+detection_chance = 10 #Trying to add a detection feature so that there are consequences to failure
 
 def MainMenu():
     os.system("cls")
@@ -112,39 +113,55 @@ def PlayerInventory():
         input() #Pauses program to let user see their inventory
         os.system("cls")  #Clears Screen before going back to the main menu
         
+def DetectionChance(): #created a detection chance function that removes money if you are caught
+    roll = random.randint(1, 100)
+    if roll <= detection_chance:
+        print("You have been detected and booted from the system.")
+        consequence = random.randint(100, 200)
+        balance -= consequence
+        print(f"{consequence} has been removed from your account due to be caught. Your new balance is {balance}")
+    else:
+        print("You slipped into the system undetected.")
+    
+        
 def PasswordCracker():
+    global balance #had to add global to let the function know to pull from balance at the top
     os.system("cls")
+    DetectionChance()
     print("---  Attempting Password Crack ---")
     success = 50
-    if "Password Cracker" in inventory: #Need to figure out how to use the item and remove it from inventory
+    if "Password Cracker" in inventory:
         success += 20
-        #inventory.remove("Password Cracker") This may work but need to know if it add the bonus first before removing it from inventory.
+        inventory.remove("Password Cracker")
+        print(f"Here is your remaining inventory: {inventory}")
     roll = random.randint(1, 100)
     if roll > success:
         print("Password has been cracked. You have been awarded $100")
-        global balance
         balance += 100 #Bare bones adding of currency for winning.
     else:
-        print("Password Crack failed")
-    HackingMenu()
+        HackingMenu()
     
 def DataExtraction():
+    global balance #had to add global to let the function know to pull from balance at the top
     os.system("cls")
+    DetectionChance()
     print("--- Attempting Data Extraction ---")
     success = 40
     if "Data Sniffer" in inventory: #Need to figure out how to use the item and remove it from inventory
         success += 20
+        inventory.remove("Data Sniffer")
+        print(f"Here is your remaining inventory: {inventory}")
     roll = random.randint(1, 100)
     if roll > success:
         print("Data Extraction Successful. You have been awarded $200")
-        global balance
         balance += 200 #Bare bones adding of currency for winning.
     else:
-        print("Data Extraction Failed")
-    HackingMenu()
+        HackingMenu()
     
 def DDoSAttack():
+    global balance #had to add global to let the function know to pull from balance at the top
     os.system("cls")
+    DetectionChance()
     print("--- Attempting DDoS Atttack ---")
     ip = input("Enter the target IP:")
     if ip == "127.0.0.1":
@@ -156,15 +173,19 @@ def DDoSAttack():
     success = 20
     if "Servers" in inventory: #Need to figure out how to use the item and remove it from inventory
         success += 20
+        inventory.remove("Servers")
+        print(f"Here is your remaining inventory: {inventory}")
     roll = random.randint(1, 100)
     if roll > success:
         print("DDoS Attack Successful. You have been awarded $300")
-        global balance
         balance += 300 #Bare bones adding of currency for winning.
     else:
-        print("DDoS Attack Failed")
-    try_again = input("Want to try again?: ")  #Added IF statement to ask user if they want to try again or exit out..  //  Maybe keep track of how many times they hacked and force them to the hacking menu??
-    if try_again == "y":
+        global detection_chance #Same here with detection chance
+        detection_chance += 10 #add a 10% chance to being detected.
+        print("DDoS Attack Failed. Your chance of being caught has increased.")
+        
+    try_again = input("Want to try again?: ")
+    if try_again.lower() == "yes":
         DDoSAttack()
     else:
         HackingMenu()
