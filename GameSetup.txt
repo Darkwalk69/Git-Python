@@ -1,44 +1,56 @@
 Hacking Game: 
-Create menus:
-1. Shop (Started but can be upgraded)
-2. Inventory (Started but can be upgraded)
-3. Hacking Options (Started but can be upgraded)
-4. Contracts (Not started)
-5. Exit
-
-Create the shopping menu:
-What items are available to buy?
-Wifi attacks
-Network attacks
-Viruses
-IDS detection
-Prices? Upgrades? 
-Can the player sell the items back?
-
-Hacking Interface: 
-When hacking into systems, create an interface to show the company logo for the system you are hacking into
-Once in, show menu options  /  Hacks should be able to get player admin access to more menu options for better rewards but will be more problems
-. 
 
 
-Inventory:
-list, able to add and remove items
-Keep track of how many items are in the Inventory
-Keep track on money for the player
+1. Create menus:
+    1a. Shop (Started but can be upgraded)
+    2a. Inventory (Started but can be upgraded)
+    3a. Hacking Options (Started but can be upgraded)
+    4a. Contracts (Not started)
+    5a. Exit
 
-How will the player make money?
 
-Contracts:
+1A. Create the shopping menu:
+    What items are available to buy?
+    Wifi attacks
+    Network attacks
+    Viruses
+    IDS detection
+    Prices? Upgrades? 
+    Can the player sell the items back?
+
+
+2A. Inventory:
+    list, able to add and remove items
+    Keep track of how many items are in the Inventory
+    Keep track on money for the player
+
+3A. Hacking Interface: 
+    When hacking into systems, create an interface to show the company logo for the system you are hacking into
+    Once in, show menu options  /  Hacks should be able to get player admin access to more menu options for better rewards but will be more problems
+    *******************
+    Hacking menu items:
+    Provide stats of the hacking tools
+    Provide the level of the hacking
+
+
+
 Types of Contracts:
 For Hire
 Dark Web
 Reward for contracts
+Shop contracts
 
-How does the player keep track of the contacts?
-How do you make sure the player has the correct items needed for the contact?
-Is there a penality for not completing the contract within a period time?
-Can the player do jobs for the shop in order to get a better discount on future items?
-Does the prices go up or go down within the shop depending if the player fails the contracts?
+
+
+****************************************************************************************
+Extra Addon idea after the game is stable and basics are complete.
+    How does the player keep track of the contacts?
+    How do you make sure the player has the correct items needed for the contact?
+    Is there a penality for not completing the contract within a period time?
+    Can the player do jobs for the shop in order to get a better discount on future items?
+    Does the prices go up or go down within the shop depending if the player fails the contracts?
+    Create a separate file for all functions
+    Create a sepearate file for menus to be displayed
 
 Exit:
 Good Bye!
