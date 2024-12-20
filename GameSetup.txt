@@ -15,6 +15,10 @@ IDS detection
 Prices? Upgrades? 
 Can the player sell the items back?
 
+Hacking Interface: 
+When hacking into systems, create an interface to show the company logo for the system you are hacking into
+Once in, show menu options  /  Hacks should be able to get player admin access to more menu options for better rewards but will be more problems
+
 
 Inventory:
 list, able to add and remove items
