@@ -78,6 +78,7 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         HackingMenu()
     
 def HackingStore():
+    global balance
     clear()
     print("--- Welcome to the Hacking Emporium ---")
     print(f"Your current balance is: ${balance}") #Showing player what their balance is everytime they open the store up to help them keep track of their money.
@@ -90,17 +91,26 @@ def HackingStore():
     except ValueError:
         print("Invalid input! Please enter a number.")
     if choice == 1:
-        print("Adding Password Cracker to inventory")
-        inventory.append("Password Cracker")
-        balance -= 100
+        if balance < 100:
+            print("You don't have enough money!")
+        else:
+            print("Adding Password Cracker to inventory")
+            inventory.append("Password Cracker")
+            balance -= 100
     elif choice == 2:
-        print("Adding Data Sniffer to Inventory")
-        inventory.append("Data Sniffer")
-        balance -= 200
+        if balance < 200:
+            print("You don't have enough money!")
+        else:
+            print("Adding Data Sniffer to Inventory")
+            inventory.append("Data Sniffer")
+            balance -= 200
     elif choice == 3:
-        print("Adding Servers to Inventory")
-        inventory.append("Servers")
-        balance -= 300
+        if balance < 300:
+            print("You don't have enough money!")
+        else:
+            print("Adding Servers to Inventory")
+            inventory.append("Servers")
+            balance -= 300
     elif choice == 4:
         MainMenu()
     else:

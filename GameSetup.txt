@@ -1,9 +1,9 @@
 Hacking Game: 
 Create menus:
-1. Shop
-2. Inventory
-3. Hacking Options
-4. Contracts
+1. Shop (Started but can be upgraded)
+2. Inventory (Started but can be upgraded)
+3. Hacking Options (Started but can be upgraded)
+4. Contracts (Not started)
 5. Exit
 
 Create the shopping menu:
