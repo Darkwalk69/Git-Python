@@ -63,6 +63,7 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         HackingMenu()
     
 def HackingStore():
+    global balance
     os.system("cls")
     print("--- Welcome to the Hacking Emporium ---")
     print(f"Your current balance is: ${balance}") #Showing player what their balance is everytime they open the store up to help them keep track of their money.
@@ -121,6 +122,7 @@ def PasswordCracker():
     roll = random.randint(1, 100)
     if roll > success:
         print("Password has been cracked. You have been awarded $100")
+        global balance
         balance += 100 #Bare bones adding of currency for winning.
     else:
         print("Password Crack failed")
@@ -135,6 +137,7 @@ def DataExtraction():
     roll = random.randint(1, 100)
     if roll > success:
         print("Data Extraction Successful. You have been awarded $200")
+        global balance
         balance += 200 #Bare bones adding of currency for winning.
     else:
         print("Data Extraction Failed")
@@ -156,6 +159,7 @@ def DDoSAttack():
     roll = random.randint(1, 100)
     if roll > success:
         print("DDoS Attack Successful. You have been awarded $300")
+        global balance
         balance += 300 #Bare bones adding of currency for winning.
     else:
         print("DDoS Attack Failed")
