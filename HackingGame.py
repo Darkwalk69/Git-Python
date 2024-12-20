@@ -1,14 +1,28 @@
 #make comments!!!
 from operator import inv
-import os
+from os import system, name
 import random
 
 inventory = []
 balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
 detection_chance = 10 #Trying to add a detection feature so that there are consequences to failure
 
+
+# define our clear function
+def clear():
+
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
+
+
+
 def MainMenu():
-    os.system("cls")
+    clear()
     choice = ""
     while choice != 4:  
         print("--- Welcome Fellow Hacker! ---")
@@ -38,7 +52,7 @@ def MainMenu():
 
     
 def HackingMenu(): #Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!! 
-    os.system("cls")
+    clear()
     print("--- Here are your available hacks ---")
     print("1. Password Cracker")
     print("2. Data Extraction")
@@ -64,7 +78,7 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         HackingMenu()
     
 def HackingStore():
-    os.system("cls")
+    clear()
     print("--- Welcome to the Hacking Emporium ---")
     print(f"Your current balance is: ${balance}") #Showing player what their balance is everytime they open the store up to help them keep track of their money.
     print("1. Password Cracker Boost. $100")
@@ -100,8 +114,10 @@ def HackingStore():
         MainMenu()
     
 def PlayerInventory():
+    global balance
+    print(f"Your current balance is {balance}") # Invetory will now show the current balance
     num = 0
-    os.system("cls")
+    clear()
     print("--- Here is your Inventory ---")
     if inventory:
         for item in inventory:
@@ -110,9 +126,10 @@ def PlayerInventory():
     else:
         print("Your inventory is empty")
         input() #Pauses program to let user see their inventory
-        os.system("cls")  #Clears Screen before going back to the main menu
+        clear()  #Clears Screen before going back to the main menu
         
 def DetectionChance(): #created a detection chance function that removes money if you are caught
+    global balance  # Add global VAR so the balance could be read from this function
     roll = random.randint(1, 100)
     if roll <= detection_chance:
         print("You have been detected and booted from the system.")
@@ -125,7 +142,7 @@ def DetectionChance(): #created a detection chance function that removes money i
         
 def PasswordCracker():
     global balance #had to add global to let the function know to pull from balance at the top
-    os.system("cls")
+    clear()
     DetectionChance()
     print("---  Attempting Password Crack ---")
     success = 50
@@ -151,7 +168,7 @@ def PasswordCracker():
     
 def DataExtraction():
     global balance #had to add global to let the function know to pull from balance at the top
-    os.system("cls")
+    clear()
     DetectionChance()
     print("--- Attempting Data Extraction ---")
     success = 40
@@ -177,7 +194,7 @@ def DataExtraction():
     
 def DDoSAttack():
     global balance #had to add global to let the function know to pull from balance at the top
-    os.system("cls")
+    clear()
     DetectionChance()
     print("--- Attempting DDoS Atttack ---")
     ip = input("Enter the target IP:")

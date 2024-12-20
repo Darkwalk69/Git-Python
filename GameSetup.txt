@@ -15,6 +15,11 @@ IDS detection
 Prices? Upgrades? 
 Can the player sell the items back?
 
+Hacking Interface: 
+When hacking into systems, create an interface to show the company logo for the system you are hacking into
+Once in, show menu options  /  Hacks should be able to get player admin access to more menu options for better rewards but will be more problems
+. 
+
 
 Inventory:
 list, able to add and remove items
@@ -22,8 +27,6 @@ Keep track of how many items are in the Inventory
 Keep track on money for the player
 
 How will the player make money?
-
-
 
 Contracts:
 Types of Contracts:
@@ -35,7 +38,7 @@ How does the player keep track of the contacts?
 How do you make sure the player has the correct items needed for the contact?
 Is there a penality for not completing the contract within a period time?
 Can the player do jobs for the shop in order to get a better discount on future items?
-Does the prices go up or
+Does the prices go up or go down within the shop depending if the player fails the contracts?
 
 Exit:
 Good Bye!
