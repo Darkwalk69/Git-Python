@@ -43,8 +43,9 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
     except ValueError:
         print("Invalid Input!. Please enter a number.")
     if choice == 1:
-        print("Preparing Password Cracking Software")
-        PasswordCracker()
+        result = PasswordCracker()
+        while result == "PlayAgain":
+            PasswordCracker()
     elif choice == 2:
         print("Preparing Data Extraction Software")
         DataExtraction()

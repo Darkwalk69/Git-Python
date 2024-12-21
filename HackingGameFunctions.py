@@ -65,9 +65,9 @@ def PasswordCracker():
         
     try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
     if try_again.lower() == "yes":
-        PasswordCracker()
+        return "PlayAgain"
     else:
-        HackingMenu()
+        return "HackingMenu"
     
 def DataExtraction():
     global balance #had to add global to let the function know to pull from balance at the top
