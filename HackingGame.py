@@ -1,5 +1,5 @@
 #make comments!!!
-from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear
+from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance
 
 def MainMenu():
     clear()
@@ -44,14 +44,22 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         print("Invalid Input!. Please enter a number.")
     if choice == 1:
         result = PasswordCracker()
-        while result == "PlayAgain":
+        if result == "PlayAgain": #Added if statements to all choice to coincide with the fixed try again choices in hackinggamefunctions
             PasswordCracker()
+        else:
+            HackingMenu()
     elif choice == 2:
-        print("Preparing Data Extraction Software")
-        DataExtraction()
+        result = DataExtraction()
+        if result == "PlayAgain":
+            DataExtraction()
+        else:
+            HackingMenu()
     elif choice == 3:
-        print("Preparing DDoS Attack")
-        DDoSAttack()
+        result = DDoSAttack()
+        if result == "PlayAgain":
+            DDoSAttack()
+        else:
+            HackingMenu()
     elif choice == 4:
         MainMenu()
     else:
@@ -62,7 +70,8 @@ def HackingStore():
     global balance
     clear()
     print("--- Welcome to the Hacking Emporium ---")
-    print(f"Your current balance is: ${balance}") #Showing player what their balance is everytime they open the store up to help them keep track of their money.
+    message = checkBalance(None) # Added Balance for player to see their money while shopping
+    print(message) 
     print("1. Password Cracker Boost. $100")
     print("2. Data Sniffer. $200")
     print("3. Servers to assist with DDoS Attack. $300")

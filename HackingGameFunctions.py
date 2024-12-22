@@ -5,9 +5,12 @@ inventory = []
 balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
 detection_chance = 10 #Trying to add a detection feature so that there are consequences to failure
 
+def checkBalance():
+    global balance
+    return f"Your current balance is {balance}"
+
 
 def clear():
-
     # for windows
     if name == 'nt':
         _ = system('cls')
@@ -89,11 +92,11 @@ def DataExtraction():
         detection_chance += 10 #add a 10% chance to being detected.
         print("Data Extraction Failed. Your chance of being caught has increased")
         
-    try_again = input("Want to try again?:")
+    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
     if try_again.lower() == "yes":
-        DataExtraction()
+        return "PlayAgain"
     else:
-        HackingMenu()
+        return "HackingMenu"
     
 def DDoSAttack():
     global balance #had to add global to let the function know to pull from balance at the top
@@ -122,8 +125,8 @@ def DDoSAttack():
         detection_chance += 10 #add a 10% chance to being detected.
         print("DDoS Attack Failed. Your chance of being caught has increased.")
         
-    try_again = input("Want to try again?: ")
+    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
     if try_again.lower() == "yes":
-        DDoSAttack()
+        return "PlayAgain"
     else:
-        HackingMenu()
+        return "HackingMenu"
