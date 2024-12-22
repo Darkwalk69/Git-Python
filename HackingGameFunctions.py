@@ -3,10 +3,10 @@ import random
 
 inventory = []
 balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
-detection_chance = 10 #Trying to add a detection feature so that there are consequences to failure
+detection_chance = 5 #Trying to add a detection feature so that there are consequences to failure
 
 
-def checkBalance(money):
+def checkBalance():
     global balance
     return f"Your current balance is {balance}"
 
@@ -42,7 +42,10 @@ def DetectionChance(): #created a detection chance function that removes money i
         print("You have been detected and booted from the system.")
         consequence = random.randint(100, 200)
         balance -= consequence
-        print(f"{consequence} has been removed from your account due to be caught. Your new balance is {balance}")
+        if balance < 0:
+            print("You are out of money!")
+        else:
+            print(f"{consequence} has been removed from your account due to be caught. Your new balance is {balance}")
     else:
         print("You slipped into the system undetected.")
     
@@ -62,9 +65,10 @@ def PasswordCracker():
     if roll > success:
         print("Password has been cracked. Here is your reward.")
         balance += random.randint(100,200) #Changed it to randomly add value to balance
+        print(f"{balance} has been added to your account.")
         print(f"Your new balance is: {balance}")
     else:
-        detection_chance += 10 #add a 10% chance to being detected.
+        detection_chance += 5 #add a 10% chance to being detected.
         print("Password Crack failed. Your chance of being caught has increased.")
         
     try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
@@ -90,7 +94,7 @@ def DataExtraction():
         print(f"Your new balance is: {balance}")
     else:
         global detection_chance #Same here with detection chance
-        detection_chance += 10 #add a 10% chance to being detected.
+        detection_chance += 5 #add a 10% chance to being detected.
         print("Data Extraction Failed. Your chance of being caught has increased")
         
     try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
@@ -123,7 +127,7 @@ def DDoSAttack():
         print(f"Your new balance is: {balance}")
     else:
         global detection_chance #Same here with detection chance
-        detection_chance += 10 #add a 10% chance to being detected.
+        detection_chance += 5 #add a 10% chance to being detected.
         print("DDoS Attack Failed. Your chance of being caught has increased.")
         
     try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.

@@ -67,12 +67,11 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         HackingMenu()
     
 def HackingStore():
-    global balance
+    from HackingGameFunctions import balance, inventory #Moved imports down here and removed global values fixed issue for balance and inventory alignment.
     clear()
     print("--- Welcome to the Hacking Emporium ---")
-    message = checkBalance(None)  # Added Balance for player to see their money while shopping
+    message = checkBalance()  # Added Balance for player to see their money while shopping
     print(message)
-
     print("1. Password Cracker Boost. $100")
     print("2. Data Sniffer. $200")
     print("3. Servers to assist with DDoS Attack. $300")
