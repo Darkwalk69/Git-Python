@@ -70,8 +70,9 @@ def HackingStore():
     global balance
     clear()
     print("--- Welcome to the Hacking Emporium ---")
-    message = checkBalance(None) # Added Balance for player to see their money while shopping
-    print(message) 
+    message = checkBalance(None)  # Added Balance for player to see their money while shopping
+    print(message)
+
     print("1. Password Cracker Boost. $100")
     print("2. Data Sniffer. $200")
     print("3. Servers to assist with DDoS Attack. $300")
