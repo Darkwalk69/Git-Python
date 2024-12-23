@@ -1,14 +1,21 @@
+from curses import ALL_MOUSE_EVENTS
 from os import system, name
 import random
 
 inventory = []
 balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
 detection_chance = 5 #Trying to add a detection feature so that there are consequences to failure
+counter = 0
 
 
 def checkBalance():
     global balance
     return f"Your current balance is {balance}"
+
+def UpdateBalance(amount):#created update balance function so that store will correctly change balance amounts
+    global balance
+    balance += amount
+    return balance
 
 
 def clear():
@@ -19,6 +26,21 @@ def clear():
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
+        
+def tryagain(): #turned tryagain into a function to clean up the amount of lines we had in the other functions
+    global counter
+    if counter >= 3:
+        print("You ahve reached the maximum number of attempts.")
+        counter = 0
+        return "HackingMenu"
+    print(f"You have {3 - counter} tries left.") #added to show user how many tries they have left
+    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
+    if try_again.lower() == "yes":
+        counter += 1
+        return "PlayAgain"
+    else:
+        counter = 0
+        return "HackingMenu"
 
 def PlayerInventory():
     clear()
@@ -71,11 +93,11 @@ def PasswordCracker():
         detection_chance += 5 #add a 10% chance to being detected.
         print("Password Crack failed. Your chance of being caught has increased.")
         
-    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
-    if try_again.lower() == "yes":
-        return "PlayAgain"
+    retry_decision = tryagain()
+    if retry_decision == "PlayAgain":
+        PasswordCracker()
     else:
-        return "HackingMenu"
+        return
     
 def DataExtraction():
     global balance #had to add global to let the function know to pull from balance at the top
@@ -97,11 +119,11 @@ def DataExtraction():
         detection_chance += 5 #add a 10% chance to being detected.
         print("Data Extraction Failed. Your chance of being caught has increased")
         
-    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
-    if try_again.lower() == "yes":
-        return "PlayAgain"
+    retry_decision = tryagain() #This is used to call the try again function to ensure that counter does its job
+    if retry_decision == "PlayAgain":
+        DataExtraction()
     else:
-        return "HackingMenu"   #Corrected Menu error
+        return
     
 def DDoSAttack():
     global balance #had to add global to let the function know to pull from balance at the top
@@ -130,8 +152,8 @@ def DDoSAttack():
         detection_chance += 5 #add a 10% chance to being detected.
         print("DDoS Attack Failed. Your chance of being caught has increased.")
         
-    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
-    if try_again.lower() == "yes":
-        return "DDoSAttack" #Corrected Menu error
+    retry_decision = tryagain()
+    if retry_decision == "PlayAgain":
+        DDoSAttack()
     else:
-        return "HackingMenu" #Corrected Menu error
+        return

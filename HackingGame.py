@@ -1,5 +1,8 @@
 #make comments!!!
-from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance
+from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance, UpdateBalance
+
+#Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
+
 
 def MainMenu():
     clear()
@@ -81,26 +84,26 @@ def HackingStore():
     except ValueError:
         print("Invalid input! Please enter a number.")
     if choice == 1:
-        if balance < 100:
+        if UpdateBalance(0) < 100: #imported updatebalance function with amount argument. All lines in store changes and function import is at top of code.
             print("You don't have enough money!")
         else:
             print("Adding Password Cracker to inventory")
-            inventory.append("Password Cracker")
-            balance -= 100
+            inventory.append("Password Cracker")            
+            UpdateBalance(-100)
     elif choice == 2:
-        if balance < 200:
+        if UpdateBalance(0) < 200:
             print("You don't have enough money!")
         else:
             print("Adding Data Sniffer to Inventory")
             inventory.append("Data Sniffer")
-            balance -= 200
+            UpdateBalance(-200)
     elif choice == 3:
-        if balance < 300:
+        if UpdateBalance(0) < 300:
             print("You don't have enough money!")
         else:
             print("Adding Servers to Inventory")
             inventory.append("Servers")
-            balance -= 300
+            UpdateBalance(-300)
     elif choice == 4:
         MainMenu()
     else:

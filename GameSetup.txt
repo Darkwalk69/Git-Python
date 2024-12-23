@@ -2,9 +2,9 @@ Hacking Game:
 
 
 1. Create menus:
-    1a. Shop (Started but can be upgraded)
-    2a. Inventory (Started but can be upgraded)
-    3a. Hacking Options (Started but can be upgraded)
+    1a. Shop - (Fixed balance and inventory issues.)
+    2a. Inventory - (Player inventory shows when user has item and store updates showing when inventory is bought.)
+    3a. Hacking Options - (Fixed try again option and added counter to shower player how many tries they have left.)
     4a. Contracts (Not started)
     5a. Exit
 
