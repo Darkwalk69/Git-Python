@@ -1,4 +1,3 @@
-from curses import ALL_MOUSE_EVENTS
 from os import system, name
 import random
 

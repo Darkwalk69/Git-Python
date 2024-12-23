@@ -86,6 +86,8 @@ def HackingStore():
     if choice == 1:
         if UpdateBalance(0) < 100: #imported updatebalance function with amount argument. All lines in store changes and function import is at top of code.
             print("You don't have enough money!")
+        elif UpdateBalance(-100) < 0: #added elif statement to stop purchases when in negative
+            print("You don't have enough Money!")
         else:
             print("Adding Password Cracker to inventory")
             inventory.append("Password Cracker")            
@@ -93,6 +95,8 @@ def HackingStore():
     elif choice == 2:
         if UpdateBalance(0) < 200:
             print("You don't have enough money!")
+        elif UpdateBalance(-200) < 0:
+            print("You don't have enough Money!")
         else:
             print("Adding Data Sniffer to Inventory")
             inventory.append("Data Sniffer")
@@ -100,6 +104,8 @@ def HackingStore():
     elif choice == 3:
         if UpdateBalance(0) < 300:
             print("You don't have enough money!")
+        elif UpdateBalance(-300) < 0:
+            print("You don't have enough Money!")
         else:
             print("Adding Servers to Inventory")
             inventory.append("Servers")
