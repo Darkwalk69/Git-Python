@@ -34,7 +34,7 @@ def tryagain(): #turned tryagain into a function to clean up the amount of lines
         return "HackingMenu"
     print(f"You have {3 - counter} tries left.") #added to show user how many tries they have left
     try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
-    if try_again.lower() == "yes":
+    if try_again.lower() == "yes" or "y":
         counter += 1
         return "PlayAgain"
     else:
