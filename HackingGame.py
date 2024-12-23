@@ -3,7 +3,6 @@ from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtractio
 
 #Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
 
-
 def MainMenu():
     clear()
     choice = ""
@@ -17,6 +16,7 @@ def MainMenu():
             choice = int(input("Enter your selection:\n"))
         except ValueError:
             print("Invalid Input! Please enter a number.")
+            continue
         if choice == 1:
             print("Now displaying all available hacking options")
             HackingMenu()
@@ -31,9 +31,8 @@ def MainMenu():
             exit()
         else:
             print("Invalid selection. Please choose a correct option")
-            MainMenu()
+            continue
 
-    
 def HackingMenu(): #Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!! 
     clear()
     print("--- Here are your available hacks ---")
@@ -45,6 +44,7 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         choice = int(input("Please make a selection:\n"))
     except ValueError:
         print("Invalid Input!. Please enter a number.")
+        HackingMenu()
     if choice == 1:
         result = PasswordCracker()
         if result == "PlayAgain": #Added if statements to all choice to coincide with the fixed try again choices in hackinggamefunctions
