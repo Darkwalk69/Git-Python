@@ -1,10 +1,12 @@
 from os import system, name
 import random
 
-inventory = []
+inventory = ["Password Cracker"]
 balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
 detection_chance = 5 #Trying to add a detection feature so that there are consequences to failure
 counter = 0
+
+
 
 
 def checkBalance():
@@ -33,13 +35,17 @@ def tryagain(): #turned tryagain into a function to clean up the amount of lines
         counter = 0
         return "HackingMenu"
     print(f"You have {3 - counter} tries left.") #added to show user how many tries they have left
-    try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
-    if try_again.lower() == "yes" or try_again.lower() == "y":
+    try_again = input("Want to try again?:").lower() # Added lower to the users input before it hits the logic
+    if try_again == "yes" or try_again == "y": #Corrected OR statement
+
         counter += 1
         return "PlayAgain"
-    else:
+    elif try_again == "no" or try_again == "n": #Corrected OR statement
         counter = 0
         return "HackingMenu"
+    else:
+        print("Please input a valid option") # Added additional error control
+        return tryagain()
 
 def PlayerInventory():
     clear()
@@ -68,7 +74,7 @@ def DetectionChance(): #created a detection chance function that removes money i
         print("You have been detected and booted from the system.")
         consequence = random.randint(100, 200)
         balance -= consequence
-        if balance < 0:
+        if balance <= 0:
             print("You are out of money!")
         else:
             print(f"{consequence} has been removed from your account due to be caught. Your new balance is {balance}")
@@ -81,21 +87,28 @@ def PasswordCracker():
     global detection_chance #Same here with detection chance
     clear()
     DetectionChance()
+    input("Press any key to continue") #Added input to let use see out put before rest of text appears on screen.
+    if "Password Cracker" not in inventory:
+            print("You do not have a password cracker, you cannot continue")
+            input()
+            return
+
     print("---  Attempting Password Crack ---")
     success = 50
-    if "Password Cracker" in inventory:
+    if "OverClock" in inventory:
         success += 20
-        inventory.remove("Password Cracker")
-        print(f"Here is your remaining inventory: {inventory}")
+        inventory.remove("OverClock")        
     roll = random.randint(1, 100)
     if roll > success:
         print("Password has been cracked. Here is your reward.")
         balance += random.randint(100,200) #Changed it to randomly add value to balance
         print(f"{balance} has been added to your account.")
-        print(f"Your new balance is: {balance}")
-    else:
+    else: 
         detection_chance += 5 #add a 10% chance to being detected.
         print("Password Crack failed. Your chance of being caught has increased.")
+    if detection_chance > 50:
+        inventory.remove("Password Cracker")
+        print("Password Cracker has deleted from your system")
         
     retry_decision = tryagain()
     if retry_decision == "PlayAgain":
