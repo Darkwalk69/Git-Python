@@ -37,6 +37,7 @@ def tryagain(): #turned tryagain into a function to clean up the amount of lines
     print(f"You have {3 - counter} tries left.") #added to show user how many tries they have left
     try_again = input("Want to try again?:").lower() # Added lower to the users input before it hits the logic
     if try_again == "yes" or try_again == "y": #Corrected OR statement
+
         counter += 1
         return "PlayAgain"
     elif try_again == "no" or try_again == "n": #Corrected OR statement
