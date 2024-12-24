@@ -1,6 +1,8 @@
 #make comments!!!
 from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance, UpdateBalance
 
+from menus import art
+
 #Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
 def MainMenu():
     clear()

@@ -1,7 +1,7 @@
 from os import system, name
 import random
 
-inventory = ["Password Cracker", "Data Sniffer", "IDS Scanner"]
+inventory = []
 balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
 detection_chance = 5 #Trying to add a detection feature so that there are consequences to failure
 counter = 0
@@ -28,13 +28,13 @@ def clear():
         
 def tryagain(): #turned tryagain into a function to clean up the amount of lines we had in the other functions
     global counter
-    counter = 0
     if counter >= 3:
         print("You have reached the maximum number of attempts.")
+        counter = 0
         return "HackingMenu"
     print(f"You have {3 - counter} tries left.") #added to show user how many tries they have left
     try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
-    if try_again.lower() == "yes" or "y":
+    if try_again.lower() == "yes" or try_again.lower() == "y":
         counter += 1
         return "PlayAgain"
     else:
