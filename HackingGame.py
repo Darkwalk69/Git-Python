@@ -2,21 +2,23 @@
 from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance, UpdateBalance
 
 #Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
-
 def MainMenu():
     clear()
     choice = ""
     while choice != 4:  
-        print("--- Welcome Fellow Hacker! ---")
-        print("1. Hacking Options")
-        print("2. Hacking Store")
-        print("3. View Inventory")
-        print("4. Exit")
+        print('''
+          #####################################
+          #  --- Welcome Fellow Hacker! ---   #
+          #  1. Hacking Options               #
+          #  2. Hacking Store                 #
+          #  3. View Inventory                #
+          #  4. Exit                          #
+          #####################################
+        ''')
         try:
             choice = int(input("Enter your selection:\n"))
         except ValueError:
             print("Invalid Input! Please enter a number.")
-            continue
         if choice == 1:
             print("Now displaying all available hacking options")
             HackingMenu()
@@ -31,20 +33,24 @@ def MainMenu():
             exit()
         else:
             print("Invalid selection. Please choose a correct option")
-            continue
+            MainMenu()
 
+    
 def HackingMenu(): #Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!! 
     clear()
-    print("--- Here are your available hacks ---")
-    print("1. Password Cracker")
-    print("2. Data Extraction")
-    print("3. DDoS Attack")
-    print("4. Main Menu")
+    print('''
+          #####################################
+          #  --- Welcome Fellow Hacker! ---   #
+          #  1. Password Cracker              #
+          #  2. Data Extraction               #
+          #  3. DDos Attack                   #
+          #  4. Main Menu                     #
+          #####################################
+        ''')
     try:
         choice = int(input("Please make a selection:\n"))
     except ValueError:
         print("Invalid Input!. Please enter a number.")
-        HackingMenu()
     if choice == 1:
         result = PasswordCracker()
         if result == "PlayAgain": #Added if statements to all choice to coincide with the fixed try again choices in hackinggamefunctions
