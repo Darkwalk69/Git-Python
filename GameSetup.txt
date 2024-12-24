@@ -10,6 +10,7 @@ Hacking Game:
 
 
 1A. Create the shopping menu:
+    Network Scanner LAN/WIFI
     What items are available to buy?
     Wifi attacks
     Network attacks
@@ -56,3 +57,35 @@ Extra Addon idea after the game is stable and basics are complete.
 
 Exit:
 Good Bye!
+
+
+#### Work Log ######
+JJ 12/23 
+Added new menu styles
+Added $ to balance
+
+Started on creating the target system menus menus.player
+Imported module art See notes in menus.py
+
+
+######################################################
+Old Code##########
+
+
+"""     print("--- Welcome Fellow Hacker! ---")
+        print("1. Hacking Options")
+        print("2. Hacking Store")
+        print("3. View Inventory")
+        print("4. Exit") """
+
+
+
+   print("--- Here are your available hacks ---")
+    print("1. Password Cracker")
+    print("2. Data Extraction")
+    print("3. DDoS Attack")
+    print("4. Main Menu")
+
+        
+"""     print("--- Here is your Inventory ---")
+    print(f"Your current balance is {balance}") # Invetory will now show the current balance """

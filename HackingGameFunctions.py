@@ -1,7 +1,7 @@
 from os import system, name
 import random
 
-inventory = []
+inventory = ["Password Cracker", "Data Sniffer", "IDS Scanner"]
 balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
 detection_chance = 5 #Trying to add a detection feature so that there are consequences to failure
 counter = 0
@@ -9,7 +9,7 @@ counter = 0
 
 def checkBalance():
     global balance
-    return f"Your current balance is {balance}"
+    return f"Your current balance is ${balance}"
 
 def UpdateBalance(amount):#created update balance function so that store will correctly change balance amounts
     global balance
@@ -28,13 +28,13 @@ def clear():
         
 def tryagain(): #turned tryagain into a function to clean up the amount of lines we had in the other functions
     global counter
+    counter = 0
     if counter >= 3:
-        print("You ahve reached the maximum number of attempts.")
-        counter = 0
+        print("You have reached the maximum number of attempts.")
         return "HackingMenu"
     print(f"You have {3 - counter} tries left.") #added to show user how many tries they have left
     try_again = input("Want to try again?:") #Added if statement to all hacking option to give the user the ability to try again.
-    if try_again.lower() == "yes" or try_again.lower() == "y":
+    if try_again.lower() == "yes" or "y":
         counter += 1
         return "PlayAgain"
     else:
@@ -44,13 +44,18 @@ def tryagain(): #turned tryagain into a function to clean up the amount of lines
 def PlayerInventory():
     clear()
     global balance
-    print("--- Here is your Inventory ---")
-    print(f"Your current balance is {balance}") # Invetory will now show the current balance
+    print(f'''
+                           --- Inventory ---
+                        Your current balance is ${balance}
+        ''')
     num = 0    
     if inventory:
         for item in inventory:
             num = num + 1  #Added numeric listing of items for user // Could change to QTY in the future!!! 
-            print(f"{num}.{item}")
+            print(f" {num}.{item}")
+        print("\n")
+        input("Press Any Key")
+        clear()
     else:
         print("Your inventory is empty")
         input() #Pauses program to let user see their inventory
