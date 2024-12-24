@@ -1,9 +1,9 @@
-#install art   pip install art 
-#Reference link: https://pypi.org/project/art/#description
+# install art   pip install art
+# Reference link: https://pypi.org/project/art/#description
 import art
 from art import *
 
-#The only reason we are using the art module is for the tprint function
+# The only reason we are using the art module is for the tprint function
 
 
 print('''
@@ -33,17 +33,17 @@ print('''
       ''')
 
 tprint(" Stellar Solutions")
-user_name =input("Enter Your Username: ")
+user_name = input("Enter Your Username: ")
 password = input("Enter Your Password: ")
 print(f"{user_name},{password} accepted!")
 
 tprint(" Global Bank")
-user_name =input("Enter Your Username: ")
+user_name = input("Enter Your Username: ")
 password = input("Enter Your Password: ")
 print(f"{user_name},{password} accepted!")
 
 tprint(" Quick Loans Corporation")
-user_name =input("Enter Your Username: ")
+user_name = input("Enter Your Username: ")
 password = input("Enter Your Password: ")
 print(f"{user_name},{password} accepted!")
 

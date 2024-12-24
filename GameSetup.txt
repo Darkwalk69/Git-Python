@@ -16,6 +16,7 @@ Hacking Game:
     Network attacks
     Viruses
     IDS detection
+    Overclocking Device to increase chances of hack being successful
     Prices? Upgrades? 
     Can the player sell the items back?
 
@@ -63,6 +64,13 @@ Good Bye!
 JJ 12/23 
 Added new menu styles
 Added $ to balance
+JJ 12/24
+Fixed tryagain to now accept n / no
+Add if statement to check if password cracker is in inventory, if it's not.. boots them to the mainmenu
+Added OverClock to shop to increase chances of hack being successful
+Moved the inventory.remove : If player fails to crack the password, IDS will remove it.
+JB 12/24
+Added start of contracts menu
 
 Started on creating the target system menus menus.player
 Imported module art See notes in menus.py

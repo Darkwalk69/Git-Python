@@ -1,13 +1,15 @@
-#make comments!!!
+# make comments!!!
 from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance, UpdateBalance
 
-from menus import art
+from art import tprint
 
-#Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
+# Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
+
+
 def MainMenu():
     clear()
     choice = ""
-    while choice != 4:  
+    while choice != 4:
         print('''
           #####################################
           #  --- Welcome Fellow Hacker! ---   #
@@ -37,8 +39,8 @@ def MainMenu():
             print("Invalid selection. Please choose a correct option")
             MainMenu()
 
-    
-def HackingMenu(): #Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!! 
+
+def HackingMenu():  # Consider letting the user attempt the hack attempt more than 1 time before forcing to the hacking menu 2 times? IDS system will be activated!!!
     clear()
     print('''
           #####################################
@@ -55,7 +57,7 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
         print("Invalid Input!. Please enter a number.")
     if choice == 1:
         result = PasswordCracker()
-        if result == "PlayAgain": #Added if statements to all choice to coincide with the fixed try again choices in hackinggamefunctions
+        if result == "PlayAgain":  # Added if statements to all choice to coincide with the fixed try again choices in hackinggamefunctions
             PasswordCracker()
         else:
             HackingMenu()
@@ -76,9 +78,11 @@ def HackingMenu(): #Consider letting the user attempt the hack attempt more than
     else:
         print("Invalid selection. Please choose a correct option")
         HackingMenu()
-    
+
+
 def HackingStore():
-    from HackingGameFunctions import balance, inventory #Moved imports down here and removed global values fixed issue for balance and inventory alignment.
+    # Moved imports down here and removed global values fixed issue for balance and inventory alignment.
+    from HackingGameFunctions import balance, inventory
     clear()
     print("--- Welcome to the Hacking Emporium ---")
     message = checkBalance()  # Added Balance for player to see their money while shopping
@@ -92,13 +96,15 @@ def HackingStore():
     except ValueError:
         print("Invalid input! Please enter a number.")
     if choice == 1:
-        if UpdateBalance(0) < 100: #imported updatebalance function with amount argument. All lines in store changes and function import is at top of code.
+        # imported updatebalance function with amount argument. All lines in store changes and function import is at top of code.
+        if UpdateBalance(0) < 100:
             print("You don't have enough money!")
-        elif UpdateBalance(-100) < 0: #added elif statement to stop purchases when in negative
+        # added elif statement to stop purchases when in negative
+        elif UpdateBalance(-100) < 0:
             print("You don't have enough Money!")
         else:
             print("Adding Password Cracker to inventory")
-            inventory.append("Password Cracker")            
+            inventory.append("Password Cracker")
             UpdateBalance(-100)
     elif choice == 2:
         if UpdateBalance(0) < 200:
@@ -123,12 +129,25 @@ def HackingStore():
     else:
         print("Invalid selection. Please choose a correct option")
         return HackingStore()
-    
+
     next_action = input("Would you like to continue shopping? (yes/no): ")
     if next_action.lower() == "yes":
         HackingStore()
     else:
         MainMenu()
+
+
+def HackingContracts():
+    clear()
+    print('''
+          #####################################
+          #  --- Hacking Contracts ---        #
+          #  1. Stellar Solutions             #
+          #  2. Global Bank                   #
+          #  3. Quick Loan Corporation        #
+          #  4. Main Menu                     #
+          #####################################''')
+
 
 if __name__ == "__main__":
     MainMenu()
