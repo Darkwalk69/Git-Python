@@ -95,3 +95,14 @@ Old Code##########
         
 """     print("--- Here is your Inventory ---")
     print(f"Your current balance is {balance}") # Invetory will now show the current balance """
+
+
+
+
+#### JB Work Log ######
+12/24
+Fixed Try again function
+created hacking contracts menu function
+created Stellar Solutions function
+created Global Bank function
+created Quick Loans Corporation function

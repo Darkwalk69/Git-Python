@@ -1,12 +1,13 @@
 from os import system, name
+from art import tprint
 import random
 
 inventory = ["Password Cracker"]
-balance = 0 #Changing starting balance to 0 so the player has to win some before buying items.
-detection_chance = 5 #Trying to add a detection feature so that there are consequences to failure
+# Changing starting balance to 0 so the player has to win some before buying items.
+balance = 0
+# Trying to add a detection feature so that there are consequences to failure
+detection_chance = 5
 counter = 0
-
-
 
 
 def checkBalance():
@@ -37,18 +38,21 @@ def tryagain():  # turned tryagain into a function to clean up the amount of lin
         print("You have reached the maximum number of attempts.")
         counter = 0
         return "HackingMenu"
-    print(f"You have {3 - counter} tries left.") #added to show user how many tries they have left
-    try_again = input("Want to try again?:").lower() # Added lower to the users input before it hits the logic
-    if try_again == "yes" or try_again == "y": #Corrected OR statement
+    # added to show user how many tries they have left
+    print(f"You have {3 - counter} tries left.")
+    # Added lower to the users input before it hits the logic
+    try_again = input("Want to try again?:").lower()
+    if try_again == "yes" or try_again == "y":  # Corrected OR statement
 
         counter += 1
         return "PlayAgain"
-    elif try_again == "no" or try_again == "n": #Corrected OR statement
+    elif try_again == "no" or try_again == "n":  # Corrected OR statement
         counter = 0
         return "HackingMenu"
     else:
-        print("Please input a valid option") # Added additional error control
+        print("Please input a valid option")  # Added additional error control
         return tryagain()
+
 
 def PlayerInventory():
     clear()
@@ -92,30 +96,31 @@ def PasswordCracker():
     global detection_chance  # Same here with detection chance
     clear()
     DetectionChance()
-    input("Press any key to continue") #Added input to let use see out put before rest of text appears on screen.
+    # Added input to let use see out put before rest of text appears on screen.
+    input("Press any key to continue")
     if "Password Cracker" not in inventory:
-            print("You do not have a password cracker, you cannot continue")
-            input()
-            return
+        print("You do not have a password cracker, you cannot continue")
+        input()
+        return
 
     print("---  Attempting Password Crack ---")
     success = 50
     if "OverClock" in inventory:
         success += 20
-        inventory.remove("OverClock")        
+        inventory.remove("OverClock")
     roll = random.randint(1, 100)
     if roll > success:
         print("Password has been cracked. Here is your reward.")
         # Changed it to randomly add value to balance
         balance += random.randint(100, 200)
         print(f"{balance} has been added to your account.")
-    else: 
-        detection_chance += 5 #add a 10% chance to being detected.
+    else:
+        detection_chance += 5  # add a 10% chance to being detected.
         print("Password Crack failed. Your chance of being caught has increased.")
     if detection_chance > 50:
         inventory.remove("Password Cracker")
         print("Password Cracker has deleted from your system")
-        
+
     retry_decision = tryagain()
     if retry_decision == "PlayAgain":
         PasswordCracker()
@@ -185,3 +190,27 @@ def DDoSAttack():
         DDoSAttack()
     else:
         return
+
+
+def StellarSolutions():  # Created Stellar Solutions functions baseline for contracts
+    tprint("Stellar Solutions")
+    user_name = input("Enter Your Username:")
+    password = input("Enter Your Password:")
+    print(f"{user_name}, {password} accepted")
+    print(''' Welcome to Stellar Solutions! Where dreams become reality! ''')
+
+
+def GlobalBank():  # Created Global Bank function baseline for contracts
+    tprint("Global Bank")
+    user_name = input("Enter Your Username:")
+    password = input("Enter Your Password:")
+    print(f"{user_name}, {password} accepted")
+    print(''' Welcome to Global Bank! Where your money is safe with us! ''')
+
+
+def QuickLoansCorporation():  # Created Quick Loans Corporation function baseline for contracts
+    tprint("Quick Loans Corporation")
+    user_name = input("Enter Your Username:")
+    password = input("Enter Your Password:")
+    print(f"{user_name}, {password} accepted")
+    print(''' Welcome to Quick Loans Corporation! Where your problems should never be money problems! ''')
