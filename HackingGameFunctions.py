@@ -2,12 +2,16 @@ from os import system, name
 from art import tprint
 import random
 
+from HackingGame import MainMenu
+
 inventory = ["Password Cracker"]
 # Changing starting balance to 0 so the player has to win some before buying items.
 balance = 0
 # Trying to add a detection feature so that there are consequences to failure
 detection_chance = 5
 counter = 0
+# Global VAR to check if the contract has been accepted
+stellar_solutions_contract_accepeted = False
 
 
 def checkBalance():
@@ -193,7 +197,8 @@ def DDoSAttack():
 
 
 def HackingContracts():
-    global balance
+    # importing VAR so that function can read the global VAR
+    global balance, stellar_solutions_contract_accepeted
     clear()
     print('''####################################
              #          Contract Details:       #
@@ -233,17 +238,70 @@ def HackingContracts():
             input("Press any key to continue")
             return HackingContracts()
         else:
+            # Set the VAR to true so that the Stellar Solutions function can be accessed
+            stellar_solutions_contract_accepeted = True
             return StellarSolutions()
     else:
         return HackingContracts()
 
 
 def StellarSolutions():  # Created Stellar Solutions functions baseline for contracts
+    global stellar_solutions_contract_accepeted, balance
+    if not stellar_solutions_contract_accepeted:  # If contract has not beeen accepted, returns to Main Menu
+        print("You have not accepted the contract for Stellar Solutions.")
+        input("Press any key to continue")
+        return MainMenu()
     tprint("Stellar Solutions")
     user_name = input("Enter Your Username:")
     password = input("Enter Your Password:")
     print(f"{user_name}, {password} accepted")
     print(''' Welcome to Stellar Solutions! Where dreams become reality! ''')
+
+    print("Scanning Wifi Networks...")
+    success = random.randint(1, 100)
+    if success > 20:
+        print("Accessible Wifi Network Found")
+    elif success <= 10:
+        detection_chance += 5
+        print("You were detected. IP address has been logged and banned.")
+    else:
+        print("Failed to locate network.")
+        return MainMenu()
+
+    print("Scrubbing Hard Drive for Project Galaxy Files...")
+    success = random.randint(1, 100)
+    if success > 30:
+        print("Project Galaxy Files Found. Password Required.")
+    elif success <= 10:
+        detection_chance += 10
+        print("You were detected. IP address has been logged and banned.")
+    else:
+        print("Failed to locate Project Galaxy Files.")
+        return MainMenu()
+
+    print("Cracking Password...")
+    success = random.randing(1, 100)
+    if success > 40:
+        print("Password Cracked. Files Downloaded. Preparing Virus Injection for escape.")
+    elif success <= 10:
+        detection_chance += 15
+        print("You were detected. IP address has been logged and banned.")
+    else:
+        print("Password Cracking Failed.")
+        return MainMenu()
+
+    print("Injecting Virus into Mainframe...")
+    success = random.randint(1, 100)
+    if success > 50:
+        print("Virus Injected. Files Downloaded. Contract Complete.")
+        balance += 1000
+        print("You have been paid $1000.")
+    elif success <= 10:
+        detection_chance += 20
+        print("You were detected. IP address has been logged and banned.")
+    else:
+        print("Virus Injection Failed.")
+        return MainMenu()
 
 
 def GlobalBank():  # Created Global Bank function baseline for contracts

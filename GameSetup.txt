@@ -110,3 +110,5 @@ created Quick Loans Corporation function
 Changed hacking contracts to hacking targets in main menu (Along with changing function name to go in line with change)
 Changed hacking options to available hacks in main menu
 created new hacking contracts functions and added first contract with stellar Solutions
+added global variable so that if user has not accepted contract they cannot access stellar solutions function.
+finished fleshing out initial runthrough of stellar solution contract. (Still need to add in way to remove item from inventory randomly if they are caught.)
