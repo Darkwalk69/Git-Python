@@ -192,6 +192,52 @@ def DDoSAttack():
         return
 
 
+def HackingContracts():
+    global balance
+    clear()
+    print('''####################################
+             #          Contract Details:       #
+             #    Break into Stellar Solutions  #
+             #   network and retrieve files on  #
+             #      codename "Project Galaxy    #
+             ####################################
+             ''')
+    input("Press any key to continue")
+    print('''####################################
+             #          Requirements:           #
+             # 1. Wifi Scanner                  #
+             # 2. Data Sniffer                  #
+             # 3. Password Cracker              #
+             # 4. Virus Injector                #
+             ####################################
+            ''')
+    input("Press any key to continue")
+    print('''####################################
+             #          Reward:                 #
+             #           $1000                  #
+             ####################################
+             ''')
+    input("Press any key to continue")
+    print('''####################################
+             # But be warned. Contract failure  # 
+             # will result in the loss of $300  #
+             # and destruction of a random time.#
+             ####################################
+             ''')
+    input("Press any key to continue")
+    print("Do you accept this contract?")
+    choice = input("Yes or No:").lower()
+    if choice == "yes" or choice == "y":
+        if "Wifi Scanner" not in inventory or "Data Sniffer" not in inventory or "Password Cracker" not in inventory or "Virus Injector" not in inventory:
+            print("You do not have the required items to accept this contract.")
+            input("Press any key to continue")
+            return HackingContracts()
+        else:
+            return StellarSolutions()
+    else:
+        return HackingContracts()
+
+
 def StellarSolutions():  # Created Stellar Solutions functions baseline for contracts
     tprint("Stellar Solutions")
     user_name = input("Enter Your Username:")

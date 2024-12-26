@@ -106,3 +106,7 @@ created hacking contracts menu function
 created Stellar Solutions function
 created Global Bank function
 created Quick Loans Corporation function
+12/25
+Changed hacking contracts to hacking targets in main menu (Along with changing function name to go in line with change)
+Changed hacking options to available hacks in main menu
+created new hacking contracts functions and added first contract with stellar Solutions

@@ -4,18 +4,19 @@ from HackingGameFunctions import DetectionChance, PasswordCracker, DataExtractio
 # Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
 
 
-def MainMenu(): #Updated Menu to reflect adding in HackingContracts
+def MainMenu():  # Updated Menu to reflect adding in HackingContracts
     clear()
     choice = ""
-    while choice != 5:
+    while choice != 6:
         print('''
           #####################################
           #  --- Welcome Fellow Hacker! ---   #
-          #  1. Hacking Options               #
-          #  2. Hacking Contracts             #
-          #  3. Hacking Store                 #
-          #  4. View Inventory                #
-          #  5. Exit                          #
+          #  1. Available Hacks               #
+          #  2. Hacking Targets               #
+          #  3. Hacking Contracts             #
+          #  4. Hacking Store                 #
+          #  5. View Inventory                #
+          #  6. Exit                          #
           #####################################
         ''')
         try:
@@ -25,16 +26,19 @@ def MainMenu(): #Updated Menu to reflect adding in HackingContracts
         if choice == 1:
             print("Now displaying all available hacking options")
             HackingMenu()
-        elif choice == 2:  # Adding HackingContracts to MainMenu
+        elif choice == 2:  # Adding HackingTargets to MainMenu
             print("Now accessing available hacking contracts.")
+            HackingTargets()
+        elif choice == 3: # Added HackingContracts to MainMenu so user can get contract here then go to target menu to do contracts.
+            print("Now displaying available hacking contracts.")
             HackingContracts()
-        elif choice == 3:
+        elif choice == 4:
             print("Now displaying the Hacking Store")
             HackingStore()
-        elif choice == 4:
+        elif choice == 5:
             print("Now displaying your current stats")
             PlayerInventory()
-        elif choice == 5:
+        elif choice == 6:
             print("Exiting game. Goodbye!")
             exit()
         else:
@@ -139,7 +143,7 @@ def HackingStore():
         MainMenu()
 
 
-def HackingContracts():  # Created HackingContracts function menu to display available contracts
+def HackingTargets():  # Created HackingContracts function menu to display available contracts
     clear()
     print('''
           #####################################
@@ -163,7 +167,7 @@ def HackingContracts():  # Created HackingContracts function menu to display ava
         MainMenu()
     else:
         print("Invalid Selection. Please choose a correct option")
-        return HackingContracts()
+        return HackingTargets()
 
 
 if __name__ == "__main__":
