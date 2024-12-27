@@ -1,3 +1,5 @@
+print("Loading HackingGame")
+
 # make comments!!!
 from HackingGameFunctions import DetectionChance, HackingContracts, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance, UpdateBalance, StellarSolutions, GlobalBank, QuickLoansCorporation
 

@@ -1,8 +1,9 @@
+print("Loading HackingGameFunctions")
 from os import system, name
 from art import tprint
 import random
 
-from HackingGame import MainMenu
+
 
 inventory = ["Password Cracker"]
 # Changing starting balance to 0 so the player has to win some before buying items.
@@ -246,6 +247,7 @@ def HackingContracts():
 
 
 def StellarSolutions():  # Created Stellar Solutions functions baseline for contracts
+    from HackingGame import MainMenu   #imported MainMenu to prevent circual import error.
     global stellar_solutions_contract_accepeted, balance
     if not stellar_solutions_contract_accepeted:  # If contract has not beeen accepted, returns to Main Menu
         print("You have not accepted the contract for Stellar Solutions.")
