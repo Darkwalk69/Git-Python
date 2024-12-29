@@ -167,7 +167,7 @@ def DDoSAttack():
     clear()
     DetectionChance()
     print("--- Attempting DDoS Atttack ---")
-    ip = input("Enter the target IP:")
+    ip = input("Enter the target hostname: ")
     if ip == "127.0.0.1":
         print("Why are you hacking your home?!")
         input()
@@ -201,7 +201,8 @@ def HackingContracts():
     # importing VAR so that function can read the global VAR
     global balance, stellar_solutions_contract_accepeted
     clear()
-    print('''####################################
+    print('''
+             ####################################
              #          Contract Details:       #
              #    Break into Stellar Solutions  #
              #   network and retrieve files on  #
@@ -209,7 +210,8 @@ def HackingContracts():
              ####################################
              ''')
     input("Press any key to continue")
-    print('''####################################
+    print('''
+             ####################################
              #          Requirements:           #
              # 1. Wifi Scanner                  #
              # 2. Data Sniffer                  #
@@ -218,13 +220,15 @@ def HackingContracts():
              ####################################
             ''')
     input("Press any key to continue")
-    print('''####################################
+    print('''
+             ####################################
              #          Reward:                 #
              #           $1000                  #
              ####################################
              ''')
     input("Press any key to continue")
-    print('''####################################
+    print('''
+             ####################################
              # But be warned. Contract failure  # 
              # will result in the loss of $300  #
              # and destruction of a random time.#
