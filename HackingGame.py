@@ -3,7 +3,8 @@ print("Loading HackingGame")
 # make comments!!!
 from HackingGameFunctions import DetectionChance, HackingContracts, PasswordCracker, DataExtraction, DDoSAttack, PlayerInventory, clear, checkBalance, UpdateBalance, StellarSolutions, GlobalBank, QuickLoansCorporation
 
-# Reminder comment. If you are trying to have code from HackingGameFunctions work with HackingGame and it is now working. Try creating a function and importing it in.
+# Reminder comment. If you are trying to have code from HackingGameFunctions work
+#with HackingGame and it is not working. Try creating a function and importing it in.
 
 
 def MainMenu():  # Updated Menu to reflect adding in HackingContracts
